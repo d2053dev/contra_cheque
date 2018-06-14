@@ -14,6 +14,6 @@ and open the template in the editor.
         <?php
         // put your code here
         ?>
-
+        Esta alteração foi feita no Windows!
     </body>
 </html>
