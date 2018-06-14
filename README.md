@@ -1,1 +1,0 @@
-# contra_cheque
