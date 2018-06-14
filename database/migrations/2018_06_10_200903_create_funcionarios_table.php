@@ -26,20 +26,17 @@ class CreateFuncionariosTable extends Migration
 						$table->char('gender', 1)->nullable();
 						$table->string('email', 60)->nullable();
 						$table->text('notes')->nullable();
-						$table->floatval('salary');
-						$table->boolval('insal')->nullable();
-						$table->bollval('pericul')->nullable();
+						$table->float('salary');
+						$table->char('insal')->nullable();
+						$table->char('pericul')->nullable();
 						$table->string('func', 30);
 						$table->integer('empresa')->unsigned();
 
             $table->timestamps();
-						$table->oftDeletes();
+						$table->softDeletes();
 
-						$table->foreign('empresa')->references('idcliente')-on('clientes');
+						$table->foreign('empresa')->references('idcliente')->on('clientes');
 
-						created_at
-						updated_at
-						deleted_at
 		});
 	}
 
