@@ -14,7 +14,6 @@ and open the template in the editor.
         <?php
         // put your code here
         ?>
-        Teste GitHub
-        teste 2
+        Alteração feita no Mac!
     </body>
 </html>
