@@ -35,8 +35,27 @@ class DashboardController extends Controller
 
     try
     {
-      \Auth::attempt($data, false);
+
+      if(env('PASSWORD_HASH'))
+      {
+        \Auth::attempt($data, false);
+      }
+      else
+      {
+        $user = $this->repository->findWhere(['login' => $request->get('user_name')])->first();
+        if(!$user)
+          throw new \Exception("Usuário não Encontrado!");
+
+
+        if($user->pass != $request->get('pass'))
+          throw new \Exception("Senha Inválida!");
+
+
+        \Auth::login($user);
+      }
+
       return redirect()->route('user.dashboard');
+
     }
     catch (\Exception $e)
     {
