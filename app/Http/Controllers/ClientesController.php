@@ -48,17 +48,8 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $clientes = $this->repository->all();
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'data' => $clientes,
-            ]);
-        }
-
-        return view('clientes.index', compact('clientes'));
+        return view('cliente.index');
     }
 
     /**
