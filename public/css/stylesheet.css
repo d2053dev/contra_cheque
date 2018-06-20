@@ -85,3 +85,51 @@ section#conteudo-view form input[type="submit"]{
   float: right;
   color: #f9f9f9;
 }
+
+/*
+=========================================
+--------stylesheet menu lateral----------
+=========================================
+*/
+#menu{
+  position: fixed;
+  float: left;
+  width: 300px;
+  height: 100%;
+  background: #0099ff;
+  border-right: 1px solid #0055dd;
+}
+
+#menu ul,
+#menu ul li{
+  float: left;
+  width: 100%;
+}
+
+#menu ul li a{
+  height: 80px;
+  border-bottom: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+#menu ul li a i{
+  float: left;
+  height: 50px;
+  width: 50px;
+  color: inherit;
+  text-align: center;
+  line-height: 80px;
+  font-size: 2em;
+}
+
+#menu ul li a h3{
+  float: left;
+  height: 80px;
+  width: 230px;
+  font: 1.5em/80px 'Kanit', sans-serif;
+  color: inherit;
+}
+
+#menu ul li a:hover{
+  color: #0000ff;
+}
