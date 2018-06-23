@@ -3,7 +3,7 @@
     <li>
       <a href="#">
         <i class="fas fa-calculator"></i></i>
-        <h3>Cálculo de Recisão</h3>
+        <h3>Cálculo de Rescisão</h3>
       </a>
     </li>
 
