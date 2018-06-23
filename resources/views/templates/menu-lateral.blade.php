@@ -15,7 +15,7 @@
     </li>
 
     <li>
-      <a href="#">
+      <a href="{{ route('cliente.index') }}">
         <i class="fas fa-user-tie"></i></i>
         <h3>Clientes</h3>
       </a>

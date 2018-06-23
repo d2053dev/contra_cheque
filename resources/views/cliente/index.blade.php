@@ -4,19 +4,15 @@
 @endsection
 
 @section('conteudo-view')
-{{!! Form::open(['method' => 'post', 'class' => 'form-padrao']) !!}}
+{!! Form::open(['method' => 'post', 'class' => 'form-padrao']) !!}
 
-  @include('templates.formulario.input', ['label' => 'Nome', 'input' => 'name', 'atributtes' => ['placeholder' => 'Nome']])
-  @include('templates.formulario.input', ['label' => 'CNPJ', 'input' => 'cnpj', 'atributtes' => ['placeholder' => 'CNPJ']])
-  @include('templates.formulario.input', ['label' => 'Funcionários', 'input' => 'funcionaries', 'atributtes' => ['placeholder' => 'Funcionários']])
+  @include('templates.formulario.input', ['label' => 'Nome', 'input' => 'name', 'attributes' => ['placeholder' => 'Nome']])
+  @include('templates.formulario.input', ['label' => 'CNPJ', 'input' => 'cnpj', 'attributes' => ['placeholder' => 'CNPJ']])
+  @include('templates.formulario.input', ['label' => 'Funcionários', 'input' => 'funcionaries', 'attributes' => ['placeholder' => 'Funcionários']])
   @include('templates.formulario.submit', ['input' => 'Cadastrar'])
 
-{{!! Form::close() !!}}
+{!! Form::close() !!}
 @endsection
 
 @section('js-view')
 @endsection
-
-name
-cnpj
-funcionaries
