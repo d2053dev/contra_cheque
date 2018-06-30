@@ -11,6 +11,7 @@ use App\Http\Requests\ClienteCreateRequest;
 use App\Http\Requests\ClienteUpdateRequest;
 use App\Repositories\ClienteRepository;
 use App\Validators\ClienteValidator;
+use App\Services\ClienteService;
 
 /**
  * Class ClientesController.
@@ -19,15 +20,8 @@ use App\Validators\ClienteValidator;
  */
 class ClientesController extends Controller
 {
-    /**
-     * @var ClienteRepository
-     */
+    protected $service;
     protected $repository;
-
-    /**
-     * @var ClienteValidator
-     */
-    protected $validator;
 
     /**
      * ClientesController constructor.
@@ -35,10 +29,10 @@ class ClientesController extends Controller
      * @param ClienteRepository $repository
      * @param ClienteValidator $validator
      */
-    public function __construct(ClienteRepository $repository, ClienteValidator $validator)
+    public function __construct(ClienteRepository $repository, ClienteService $service)
     {
-        $this->repository = $repository;
-        $this->validator  = $validator;
+        $this->repository   = $repository;
+        $this->service      = $service;
     }
 
     /**
@@ -62,33 +56,12 @@ class ClientesController extends Controller
      */
     public function store(ClienteCreateRequest $request)
     {
-        try {
+      $request = $this->service->store($request->all());
 
-            $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
+      if($request['success'])
+        $usuario = $request['data'];
 
-            $cliente = $this->repository->create($request->all());
-
-            $response = [
-                'message' => 'Cliente created.',
-                'data'    => $cliente->toArray(),
-            ];
-
-            if ($request->wantsJson()) {
-
-                return response()->json($response);
-            }
-
-            return redirect()->back()->with('message', $response['message']);
-        } catch (ValidatorException $e) {
-            if ($request->wantsJson()) {
-                return response()->json([
-                    'error'   => true,
-                    'message' => $e->getMessageBag()
-                ]);
-            }
-
-            return redirect()->back()->withErrors($e->getMessageBag())->withInput();
-        }
+      return view('cliente.index');
     }
 
     /**

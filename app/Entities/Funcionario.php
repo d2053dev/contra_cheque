@@ -4,16 +4,16 @@ namespace App\Entities;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\softDeletes;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\Funcionario as Authenticatable;
 
-class User extends Authenticatable
+class Funcionario extends Authenticatable
 {
     use softDeletes;
     use Notifiable;
 
     public $timestamps =true;
 
-    protected $table   ='users';
+    protected $table   ='funcionarios';
     /**
      * The attributes that are mass assignable.
      *
