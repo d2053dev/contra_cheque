@@ -1,7 +1,7 @@
 <nav id="menu">
   <ul>
     <li>
-      <a href="#">
+      <a href="{{ route('rescisao.index') }}">
         <i class="fas fa-calculator"></i></i>
         <h3>Cálculo de Rescisão</h3>
       </a>

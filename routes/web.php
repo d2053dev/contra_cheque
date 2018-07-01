@@ -25,4 +25,8 @@ Route::get('/dashboard',['as' => 'user.dashboard', 'uses' => 'DashboardControlle
 
 Route::get('user',['as' => 'user.index', 'uses' => 'UsersController@index']);
 
-Route::get('cliente',['as' => 'cliente.index', 'uses' => 'ClientesController@index']);
+//Route::get('cliente',['as' => 'cliente.index', 'uses' => 'ClientesController@index']);
+
+Route::get('rescisao', ['as' => 'rescisao.index', 'uses' => 'RescisaoController@index']);
+
+Route::resource('cliente', 'ClientesController');

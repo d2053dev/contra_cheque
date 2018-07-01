@@ -4,7 +4,7 @@
 @endsection
 
 @section('conteudo-view')
-{!! Form::open(['method' => 'post', 'class' => 'form-padrao']) !!}
+{!! Form::open(['route' => 'cliente.store', 'method' => 'post', 'class' => 'form-padrao']) !!}
 
   @include('templates.formulario.input', ['label' => 'Nome', 'input' => 'name', 'attributes' => ['placeholder' => 'Nome']])
   @include('templates.formulario.input', ['label' => 'CNPJ', 'input' => 'cnpj', 'attributes' => ['placeholder' => 'CNPJ']])

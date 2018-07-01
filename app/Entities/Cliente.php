@@ -4,9 +4,10 @@ namespace App\Entities;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\softDeletes;
-use Illuminate\Foundation\Auth\Cliente as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Authenticatable
+
+class Cliente extends Model
 {
     use softDeletes;
     use Notifiable;

@@ -56,12 +56,18 @@ class ClientesController extends Controller
      */
     public function store(ClienteCreateRequest $request)
     {
-      $request = $this->service->store($request->all());
+        $request =  $this->service->store($request->all());
 
-      if($request['success'])
-        $usuario = $request['data'];
+        if($request['success'])
+            $cliente = $request['data'];
+        else {
+          $cliente = null;
+        }
 
-      return view('cliente.index');
+        return view('cliente.index', [
+          'cliente' => $cliente,
+        ]);
+
     }
 
     /**
