@@ -23,12 +23,12 @@ class ClienteService
   {
     try
     {
-      $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE); 
+      $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
       $cliente = $this->repository->create($data);
 
       return [
         'success'  => true,
-        'message'  => 'Cliente Cadastrado!',
+        'messages'  => 'Cliente Cadastrado!',
         'data'     => $cliente,
       ];
     }
@@ -36,7 +36,7 @@ class ClienteService
     {
       return [
         'success'  => false,
-        'message' => 'Erro de execução!',
+        'messages' => $e->getMessage(),
       ];
     }
   }

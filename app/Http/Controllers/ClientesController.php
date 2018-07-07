@@ -42,7 +42,12 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        return view('cliente.index');
+
+        $clientes = $this->repository->all();
+
+        return view('cliente.index',[
+          'clientes' => $clientes
+        ]);
     }
 
     /**
@@ -57,12 +62,12 @@ class ClientesController extends Controller
     public function store(ClienteCreateRequest $request)
     {
         $request =  $this->service->store($request->all());
+        $cliente =  $request['success'] ? $request['data'] : null;
 
-        if($request['success'])
-            $cliente = $request['data'];
-        else {
-          $cliente = null;
-        }
+        session()->flash('success', [
+            'success'   => $request['success'],
+            'messages'  => $request['messages']
+        ]);
 
         return view('cliente.index', [
           'cliente' => $cliente,
